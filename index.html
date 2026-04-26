@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>曾子荣 · Robotics & Control Engineer</title>
+<meta name="description" content="机器人运动控制与力控算法工程师 · 从嵌入式底层到 ROS 应用层的全栈实践者">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+<style>
+  :root{--bg:#fafaf7;--surface:#fff;--text:#1a1a1a;--muted:#666;--border:rgba(0,0,0,.08);--accent:#3266ad;--accent2:#1d9e75}
+  @media(prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1e1e1c;--text:#f0efea;--muted:#a0a0a0;--border:rgba(255,255,255,.08)}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:3rem 1.5rem}
+  header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+  header h1{font-size:22px;font-weight:500}
+  nav a{color:var(--muted);margin-left:1.5rem;text-decoration:none;font-size:14px}
+  nav a:hover{color:var(--accent)}
+  @media(max-width:600px){nav a{margin-left:.8rem;font-size:13px}}
+  .hero{margin-bottom:4rem;max-width:720px}
+  .hero h2{font-size:34px;font-weight:500;margin-bottom:.5rem;line-height:1.3}
+  .hero .subtitle{font-size:15px;color:var(--muted);margin-bottom:.6rem;line-height:1.6}
+  .hero p{color:var(--muted);margin-bottom:.4rem;font-size:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.2rem}
+  .tag{font-size:12px;padding:3px 10px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--muted)}
+  section{margin-bottom:3.5rem}
+  h3.section{font-size:13px;font-weight:500;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+  .proj{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.25rem}
+  .proj h4{font-size:17px;font-weight:500;margin-bottom:.4rem}
+  .proj .meta{font-size:13px;color:var(--muted);margin-bottom:.9rem}
+  .proj .meta a{color:var(--accent);text-decoration:none;margin-right:.8rem}
+  .badge{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;margin-left:6px;font-weight:500}
+  .badge-hw{background:#e8f5e9;color:#2e7d32;border:1px solid #c8e6c9}
+  .badge-sim{background:#e3f2fd;color:#1565c0;border:1px solid #bbdefb}
+  @media(prefers-color-scheme:dark){.badge-hw{background:#1b5e2033;color:#81c784;border-color:#2e7d3244}.badge-sim{background:#1565c033;color:#64b5f6;border-color:#1565c044}}
+  .proj ul{list-style:none;padding:0;margin-top:1rem}
+  .proj li{font-size:14px;margin-bottom:.5rem;padding-left:1rem;position:relative}
+  .proj li::before{content:"▸";position:absolute;left:0;color:var(--accent2)}
+  .proj li strong{font-weight:500}
+  .hero-video{width:100%;border-radius:8px;background:#000;max-height:440px;object-fit:contain;display:block;margin-bottom:.5rem}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:1rem 0}
+  .gallery-item{background:#000;border-radius:8px;overflow:hidden;position:relative}
+  .gallery-item video,.gallery-item img{width:100%;height:180px;object-fit:cover;display:block;cursor:pointer}
+  .gallery-item .cap{position:absolute;bottom:0;left:0;right:0;padding:6px 10px;font-size:11px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+  .gallery-vertical video{height:240px;object-fit:contain;background:#000}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+  .skill-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.15rem}
+  .skill-card .cat{font-size:12px;font-weight:500;margin-bottom:.3rem;display:flex;align-items:center;gap:6px}
+  .skill-card .items{font-size:13px;color:var(--muted);line-height:1.6}
+  .level{font-size:10px;padding:1px 6px;border-radius:8px;font-weight:600}
+  .level-pro{background:#e8f5e9;color:#2e7d32}
+  .level-mid{background:#e3f2fd;color:#1565c0}
+  .level-learn{background:#f3e5f5;color:#7b1fa2}
+  @media(prefers-color-scheme:dark){.level-pro{background:#1b5e2033;color:#81c784}.level-mid{background:#1565c033;color:#64b5f6}.level-learn{background:#7b1fa233;color:#ce93d8}}
+  .edu-item,.train-item{padding:.8rem 0;border-bottom:1px solid var(--border)}
+  .edu-item:last-child{border-bottom:none}
+  .edu-item .school{font-weight:500;font-size:15px}
+  .edu-item .detail{font-size:13px;color:var(--muted)}
+  .train-item{display:flex;gap:1.2rem;align-items:flex-start}
+  .train-item img{width:80px;height:80px;border-radius:8px;object-fit:cover;border:1px solid var(--border)}
+  .train-info .title{font-weight:500;font-size:15px}
+  .train-info .sub{font-size:13px;color:var(--muted);margin-top:.2rem}
+  .exp{padding:1rem 0;border-bottom:1px solid var(--border)}
+  .exp:last-child{border-bottom:none}
+  .exp .title{font-weight:500;font-size:15px}
+  .exp .sub{font-size:13px;color:var(--muted);margin-bottom:.5rem}
+  .exp ul{padding-left:1.2rem}
+  .exp li{font-size:14px;color:var(--muted);margin-bottom:.3rem}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding-top:2rem;border-top:1px solid var(--border)}
+  .links a{color:var(--accent);text-decoration:none;margin:0 .5rem;font-size:14px}
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
+  .lightbox.active{display:flex}
+  .lightbox video,.lightbox img{max-width:100%;max-height:90vh;border-radius:8px}
+  .lightbox .close{position:absolute;top:1rem;right:1.5rem;color:#fff;font-size:28px;background:none;border:0;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>曾子荣 Kevin</h1>
+  <nav>
+    <a href="#about">关于</a>
+    <a href="#projects">项目</a>
+    <a href="#skills">技能</a>
+    <a href="#training">培训</a>
+    <a href="#experience">经历</a>
+    <a href="https://github.com/hjjYUDA" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+
+<section class="hero" id="about">
+  <h2>机器人运动控制工程师</h2>
+  <p class="subtitle">专注于机器人力控算法、嵌入式实时系统与自主导航开发。<br>从 STM32 固件到 ROS2 应用层，从 EtherCAT 伺服驱动到足式机器人仿真的全链路实践者。</p>
+  <p style="color:var(--text);font-size:14px">✉️ 2686273332@qq.com · 📱 13078695476 · 📍 广东中山</p>
+  <p style="font-size:13px;color:var(--muted)">求职意向：机器人运动控制 / 力控算法方向实习</p>
+  <div class="tags">
+    <span class="tag">Xenomai</span><span class="tag">EtherCAT</span>
+    <span class="tag">ROS2</span><span class="tag">FreeRTOS</span>
+    <span class="tag">SLAM</span><span class="tag">Force Control</span>
+    <span class="tag">VMC</span><span class="tag">MuJoCo</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h3 class="section">Projects</h3>
+
+  <div class="proj">
+    <h4>基于 Xenomai + EtherCAT 的单轴力控驱动系统</h4>
+    <div class="meta">2024.04 – 2026.02 · 个人项目 <span class="badge badge-hw">实物搭建</span> <a href="https://github.com/hjjYUDA/force-control" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <video class="hero-video" autoplay muted loop playsinline poster="./assets/force-control-poster.jpg" preload="metadata"><source src="./assets/force-control-demo.mp4" type="video/mp4"></video>
+    <div class="gallery">
+      <div class="gallery-item" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/force-control-balloon.mp4" type="video/mp4"></video><div class="cap">「戳气球不破」柔顺力控验证</div></div>
+      <div class="gallery-item gallery-vertical" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/force-control-hardware.mp4" type="video/mp4"></video><div class="cap">力控硬件实物 · 丝杆机构</div></div>
+      <div class="gallery-item" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/force-control-closeup.mp4" type="video/mp4"></video><div class="cap">接触瞬间特写</div></div>
+      <div class="gallery-item gallery-vertical" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/force-control-vertical.mp4" type="video/mp4"></video><div class="cap">导纳控制 · 弹簧柔顺演示</div></div>
+      <div class="gallery-item" onclick="openLightbox(this)"><img src="./assets/force-control-result.jpg" alt="结果展示"><div class="cap">纸面压痕力控测试验证</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:.5rem">📺 <a href="./assets/force-control-full.mp4" target="_blank" style="color:var(--accent);text-decoration:none">观看完整演示 (1:46) ↗</a></p>
+    <ul>
+      <li><strong>实时通信:</strong>基于 Ubuntu + Xenomai3 双内核 + IgH 开源主站实现微秒级 EtherCAT 通信，驱动台达/信捷伺服完成 CSP/CSV/CST 同步周期控制。</li>
+      <li><strong>力控算法:</strong>力传感器信号滤波 + PID 闭环解算接触力 F_e，实现恒力阻抗到变导纳的平滑切换，完成「戳气球不破」柔顺力控任务。</li>
+      <li><strong>上位机:</strong>基于 Qt 开发可视化界面，支持实时运动曲线、轨迹规划、回零、软/硬限位保护。</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <h4>ROS 移动机器人自主导航与动态避障系统</h4>
+    <div class="meta">2022.04 – 2026.03 · 个人项目 <span class="badge badge-hw">实物搭建</span> <a href="https://github.com/hjjYUDA/ros-navigation" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <video class="hero-video" autoplay muted loop playsinline poster="./assets/ros-poster.jpg" preload="metadata"><source src="./assets/ros-demo.mp4" type="video/mp4"></video>
+    <div class="gallery">
+      <div class="gallery-item gallery-vertical" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/ros-lidar-slam.mp4" type="video/mp4"></video><div class="cap">激光雷达 SLAM 建图</div></div>
+      <div class="gallery-item" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/ros-dynamic-avoid.mp4" type="video/mp4"></video><div class="cap">无先验地图动态避障</div></div>
+      <div class="gallery-item" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/ros-navigation-full.mp4" type="video/mp4"></video><div class="cap">Nav2 完整导航流程</div></div>
+    </div>
+    <ul>
+      <li><strong>底层控制:</strong>STM32 + FreeRTOS 多任务框架，电机 PID 闭环 / 里程计解算 / 串口通信解耦，保证控制周期稳定。</li>
+      <li><strong>感知驱动:</strong>独立开发激光雷达驱动，完成协议解析与坐标变换，封装为标准 ROS 话题。</li>
+      <li><strong>导航避障:</strong>ROS1 两轮差速小车建图导航（gmapping + move_base）；ROS2 + Nav2 三轮全向轮在无先验地图下动态避障（核心工作）。</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <h4>四足机器人运动控制仿真系统</h4>
+    <div class="meta">2025.01 – 2025.03 · 深蓝学院课程项目 <span class="badge badge-sim">Bullet 仿真</span></div>
+    <ul>
+      <li><strong>运动学:</strong>实现四足机器人 12 自由度正逆运动学求解，基于三次样条插值与抛物线足端轨迹规划实现 Trot 步态行走。</li>
+      <li><strong>力控与平衡:</strong>基于单刚体动力学模型 + 虚拟模型控制（VMC）实现站立平衡控制，通过 QP 求解器满足摩擦锥约束的足端力分配，经雅可比转置法转换为关节力矩指令。</li>
+      <li><strong>数学工具:</strong>实现伪逆矩阵（SVD 法 + 标准公式法）求解欠定方程组最小范数解，并对比 QP 带约束求解的优劣。</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <h4>MuJoCo 仿真与控制算法验证</h4>
+    <div class="meta">2025 · 学习项目 <span class="badge badge-sim">MuJoCo 仿真</span></div>
+    <div class="gallery">
+      <div class="gallery-item" onclick="openLightbox(this)"><video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"><source src="./assets/mujoco-pendulum.mp4" type="video/mp4"></video><div class="cap">MuJoCo 双倒立摆 LQR/PD 控制</div></div>
+    </div>
+    <ul>
+      <li><strong>经典控制验证:</strong>基于 MuJoCo 搭建双倒立摆环境，实现 LQR 与 PD 控制器，验证状态空间控制理论。</li>
+      <li><strong>强化学习探索:</strong>学习 Isaac Lab 框架，尝试使用 PPO 算法训练足式机器人站立 demo。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <h3 class="section">Technical Skills</h3>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="cat">⚙️ 嵌入式 &amp; 实时系统 <span class="level level-pro">熟练</span></div><div class="items">STM32 · FreeRTOS · Xenomai3 双内核 · IgH EtherCAT · CiA 402（CSP/CSV/CST）</div></div>
+    <div class="skill-card"><div class="cat">🤖 ROS &amp; 导航 <span class="level level-pro">熟练</span></div><div class="items">ROS1 / ROS2 · Nav2 · SLAM (gmapping) · A* / DWA · 激光雷达驱动开发</div></div>
+    <div class="skill-card"><div class="cat">🎯 机器人控制算法 <span class="level level-mid">掌握</span></div><div class="items">PID 力控 · 阻抗/导纳控制 · 正逆运动学 · 雅可比矩阵 · 三次样条/贝塞尔轨迹规划</div></div>
+    <div class="skill-card"><div class="cat">🐾 足式机器人控制 <span class="level level-mid">掌握</span></div><div class="items">虚拟模型控制 (VMC) · QP 力分配（摩擦锥约束）· 单刚体动力学建模 · 足端摆动相规划</div></div>
+    <div class="skill-card"><div class="cat">👁️ 感知与视觉 <span class="level level-mid">掌握</span></div><div class="items">OpenCV · RealSense / 奥比中光 Astra · 激光雷达协议解析与坐标变换</div></div>
+    <div class="skill-card"><div class="cat">🧪 仿真 &amp; 强化学习 <span class="level level-learn">了解</span></div><div class="items">MuJoCo 倒立摆 LQR/PD · Isaac Lab · PPO 足式机器人站立 demo</div></div>
+    <div class="skill-card"><div class="cat">💻 编程 &amp; 工具</div><div class="items">C / C++ · Python · MATLAB · Qt · Linux · Git · Altium Designer · 立创 EDA</div></div>
+  </div>
+</section>
+
+<section id="training">
+  <h3 class="section">Education &amp; Training</h3>
+  <div class="edu-item"><div class="school">广东东软学院 · 电子信息工程（本科）</div><div class="detail">2024.09 – 2026.06</div></div>
+  <div class="edu-item"><div class="school">广东轻工职业技术学院 · 工业机器人技术（专科）</div><div class="detail">2021.09 – 2024.06 · 校级二等奖学金</div></div>
+  <div class="train-item" style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border)">
+    <img src="./assets/certificate-legged-robot.png" alt="优秀学员证书">
+    <div class="train-info">
+      <div class="title">深蓝学院 ·《足式机器人运动控制》— 优秀学员</div>
+      <div class="sub">证书编号：SL731013557 · 2025.03</div>
+      <div class="sub">课程覆盖足式机器人控制全链路：运动学、轨迹规划、力控与仿真实践，完成全部课程作业并获评优秀。</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h3 class="section">Work Experience</h3>
+  <div class="exp"><div class="title">杭州树擎教育科技有限公司 · 嵌入式软件开发实习生</div><div class="sub">2023.11 – 2024.01</div><ul><li>基于 Arduino / ESP32 主导开发多个 STEM 教具原型，产出物应用于实际课程教材。</li><li>基于 C# 独立搭建拖拽式图形化编程界面（类 Scratch），打通上下位机串口通信链路。</li></ul></div>
+  <div class="exp"><div class="title">创客未来信息科技有限公司 · 教学助教</div><div class="sub">2022.09 – 2023.06</div><ul><li>独立讲授无人机视觉模块课程，指导学生完成基于视觉识别的定点降落与翻滚飞行控制程序。</li></ul></div>
+</section>
+
+<footer>
+  <div class="links"><a href="https://github.com/hjjYUDA" target="_blank" rel="noopener">GitHub</a> · <a href="mailto:2686273332@qq.com">Email</a> · <a href="./assets/resume.pdf" target="_blank">简历 PDF</a></div>
+  <p style="margin-top:1rem">© 2025 曾子荣 · Built with ♥</p>
+</footer>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)"><button class="close" onclick="closeLightbox(event)">✕</button><div id="lightbox-content"></div></div>
+<script>
+function openLightbox(item){const lb=document.getElementById('lightbox');const content=document.getElementById('lightbox-content');const video=item.querySelector('video');const img=item.querySelector('img');if(video){const src=video.querySelector('source').src;content.innerHTML='<video controls autoplay playsinline style="max-width:100%;max-height:90vh;border-radius:8px"><source src="'+src+'" type="video/mp4"></video>'}else if(img){content.innerHTML='<img src="'+img.src+'" style="max-width:100%;max-height:90vh;border-radius:8px">'}lb.classList.add('active')}
+function closeLightbox(e){if(e&&e.target.tagName==='VIDEO')return;document.getElementById('lightbox').classList.remove('active');document.getElementById('lightbox-content').innerHTML=''}
+</script>
+</body>
+</html>
